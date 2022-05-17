@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "sourceMap": false,
+    "declaration": false,
+    "outDir": "bin",
+    "resolveJsonModule": true,
+    "allowUnreachableCode": true,
+    "strict": true,
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "removeComments": true,
+    "lib": ["es6", "dom"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["bin", "node_modules", "path", "fs"]
+}
