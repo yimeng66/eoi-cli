@@ -1,19 +1,22 @@
+import chalk from 'chalk';
 import { program } from 'commander';
 
 import { version } from '../package.json';
+import { create } from './commands';
 
-async function getChalk() {
-  return (await import('chalk')).default;
+program
+  .version(chalk.green(`v${version}`), '-v, --version')
+  .usage('<command> [options]');
+
+function registerCommand() {
+  program
+    .command('create')
+    .description('create new project')
+    .action(() => {
+      create();
+    });
 }
 
-getChalk().then((chalk) => {
-  program
-    .version(chalk.green(`v${version}`), '-v, --version')
-    .usage('<command> [options]');
+registerCommand();
 
-  function registerCommand() {
-    program.command('create').description('create new project');
-  }
-
-  registerCommand();
-});
+program.parse();
